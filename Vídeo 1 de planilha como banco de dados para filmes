@@ -1,0 +1,24 @@
+function doGet(e) {
+  return ManageSheet(e);
+}
+function doPost(e) {
+  return ManageSheet(e);
+}
+
+function ManageSheet(e) {
+//Cria uma nova linha  
+  if (e.parameter.func == "Filmes") {
+    
+    var ss = SpreadsheetApp.getActive();
+    
+    var sh = ss.getSheets()[0];
+    
+    var data =[e.parameter.nome, e.parameter.capa, e.parameter.banner, e.parameter.sobre, e.parameter.ano, 
+e.parameter.linguagem, e.parameter.tipo, e.parameter.id, e.parameter.genero];
+    
+    sh.appendRow(data);
+    
+    return ContentService.createTextOutput("Sucesso");
+  
+  }  
+}
